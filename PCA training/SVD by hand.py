@@ -16,6 +16,10 @@ X = array.data / 255.0
 Y = array.target
 smoothing = 6.25652e-16 #Smoothing copied from sklearn
 
+#Main equality for this task is X = U*S*V.T, where
+#V is eigenvectors of X.T.dot(X)
+#U is eigenvectors of X.dot(X.T)
+#S is eigenvalues of X.T.dot(X) and X.dot(X.T) They are the same!
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size= 0.2)
 
 N, D = X_train.shape
@@ -56,6 +60,7 @@ plt.scatter(Z_test[:,0], Z_test[:,1], s=100, c=Y_test, alpha = 0.3)
 plt.show()
 
 U_test = Z_test / sigma
+U_test = U_test[:, idx]
 
 #For further K selection
 plt.plot(lambdas)
@@ -71,6 +76,7 @@ lambdas = lambdas[:K]
 V = V[:, :K]
 sigma = sigma[:K]
 U = U[:, :K]
+U_test = U_test[:, :K]
 
 #X reconstruction
 X_hat = U.dot(np.diag(sigma)).dot(V.T)
