@@ -2,7 +2,8 @@
 """
 Created on Mon Dec  4 20:31:03 2023
 
-@author: AMD
+@author: Bannikov Maxim
+
 """
 
 import numpy as np

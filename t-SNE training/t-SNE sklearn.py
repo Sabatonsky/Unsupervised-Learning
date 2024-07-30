@@ -2,10 +2,10 @@
 """
 Created on Mon Dec  4 17:52:40 2023
 
-@author: AMD
+@author: Bannikov Maxim
+
 """
 
-import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.manifold import TSNE
 from sklearn.datasets import load_digits
